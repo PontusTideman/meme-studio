@@ -1,36 +1,91 @@
-# Meme Studio
+<div align="center">
+  <img src="public/images/logo-meme-studio-light.png" alt="Meme Studio" width="400" />
+  <p><strong>Create, customize and share memes in seconds.</strong></p>
+  <p>
+    <a href="https://www.meme-studio.io">Website</a> &middot;
+    <a href="https://github.com/viclafouch/meme-studio/issues">Report a bug</a> &middot;
+    <a href="https://github.com/viclafouch/meme-studio/issues">Request a feature</a>
+  </p>
+</div>
 
-The Meme Studio is designed to be insanely fast and provide powerful customization for your memes, while still being simple and easy to use.
+---
 
-A list of memes is provided by default but you can also import your own image.
+Meme Studio is a fast, privacy-first meme creation tool. Pick from a curated gallery or import your own image, customize text with drag-and-drop, then download or copy your meme. No account required, no server-side storage — your creations stay on your device.
 
-You have the option of downloading your personalized meme to your device or sharing it directly on your Twitter account. I do not save your meme in our database, so make sure you export your work.
+Available in **English** and **French**.
 
-Website : [meme-studio.io](https://www.meme-studio.io)
+## Tech Stack
 
-#### Langs available (for now) :
+| Category | Technology |
+|----------|-----------|
+| Framework | [Next.js](https://nextjs.org) (App Router, React 19) |
+| Styling | [Panda CSS](https://panda-css.com) (build-time CSS-in-JS) |
+| State | [Zustand](https://zustand.docs.pmnd.rs) + [Immer](https://immerjs.github.io/immer) |
+| Async State | [TanStack Query](https://tanstack.com/query) |
+| i18n | [next-intl](https://next-intl.dev) |
+| Validation | [Zod](https://zod.dev) |
+| Icons | [Font Awesome](https://fontawesome.com) |
+| Linting | [ESLint](https://eslint.org) + [Prettier](https://prettier.io) |
+| Hosting | [Vercel](https://vercel.com) |
 
-- Français
-- English
+## Getting Started
 
-#### What I use:
+### Prerequisites
 
-- [Next.js](https://nextjs.org) - Framework React.js
-- [Panda-css](https://panda-css.com) - Built time CSS in JS
-- [Immer](https://immerjs.github.io/immer/docs/introduction) - Immutability library
-- [Next Intl](https://next-intl-docs.vercel.app) - Internationalization
-- [Tanstack Query](https://tanstack.com/query/latest) - Async state Managment
+- [Node.js](https://nodejs.org) >= 20
+- [npm](https://www.npmjs.com) >= 10
 
-### Contributing
+### Installation
 
-Any contributions and/or pull requests would be welcome.
+```bash
+git clone https://github.com/viclafouch/meme-studio.git
+cd meme-studio
+npm install
+```
 
-### Installing from source
+### Development
 
-1. Clone the repository: `git clone https://github.com/viclafouch/meme-studio.git`
-2. Install the npm dependencies `npm install`
-3. Start server: `npm run dev`
+```bash
+npm run dev
+```
 
-### Release
+The app starts at [http://localhost:8080](http://localhost:8080).
 
-1. With vercel: `npx vercel --prod`
+### Production
+
+```bash
+npm run build
+npm start
+```
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server (port 8080) |
+| `npm run build` | Production build |
+| `npm start` | Start production server (port 8080) |
+| `npm run lint` | TypeScript check + ESLint |
+| `npm run lint:fix` | Auto-fix lint issues |
+
+## Project Structure
+
+```
+src/
+  app/              # Next.js App Router pages
+  components/       # Shared UI components
+  modules/          # Feature modules (HomePage, Studio)
+  i18n/             # Internationalization config & locale files
+  stores/           # Zustand stores (Modal, Editor)
+  queries/          # TanStack Query client & providers
+  shared/           # Helpers, hooks, constants, API layer
+styled-system/      # Generated Panda CSS system (do not edit)
+```
+
+## Contributing
+
+Contributions are welcome. Feel free to open an issue or submit a pull request.
+
+## License
+
+This project is open source. See the repository for license details.
