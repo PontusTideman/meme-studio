@@ -19,5 +19,7 @@ export async function getMeme(
 ) {
   const memes = await getMemes({ locale })
 
-  return memes.find((meme) => meme.id === memeId)!
+  return memes.find((meme) => {
+    return meme.id === memeId
+  })!
 }

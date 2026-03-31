@@ -3,9 +3,6 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import Tooltip from '@components/Tooltip'
-import { Link } from '@i18n/navigation'
-import { useShowModal } from '@stores/Modal/Modal.provider'
-import { Flex, styled } from '@styled-system/jsx'
 import { faSquare } from '@fortawesome/free-regular-svg-icons'
 import {
   faEraser,
@@ -17,6 +14,9 @@ import {
   faUndo
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from '@i18n/navigation'
+import { useShowModal } from '@stores/Modal/Modal.provider'
+import { Flex, styled } from '@styled-system/jsx'
 import {
   useCountTextboxes,
   useHistory,

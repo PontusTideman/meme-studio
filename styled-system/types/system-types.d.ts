@@ -1,6 +1,6 @@
 /* eslint-disable */
 import type {  ConditionalValue, Nested  } from './conditions';
-import type {  AtRule, PropertiesFallback  } from './csstype';
+import type {  AtRule, Globals, PropertiesFallback  } from './csstype';
 import type {  SystemProperties, CssVarProperties  } from './style-props';
 
 type String = string & {}
@@ -22,9 +22,51 @@ export type Assign<T, U> = {
  * Native css properties
  * -----------------------------------------------------------------------------*/
 
+type CornerShapeValue = 'round' | 'square' | 'bevel' | 'scoop' | 'notch' | 'squircle' | `superellipse(${number})`
+
+export interface ModernCssProperties {
+  /**
+   * Controls whether the entire element should be draggable instead of its contents.
+   */
+  WebkitUserDrag?: Globals | 'auto' | 'element' | 'none'
+
+  /**
+   * Specifies whether an element can be used to drag the entire app window (Electron).
+   */
+  WebkitAppRegion?: Globals | 'drag' | 'no-drag'
+
+  /**
+   * Sets the horizontal spacing between table borders.
+   */
+  WebkitBorderHorizontalSpacing?: Globals | String | Number
+
+  /**
+   * Sets the vertical spacing between table borders.
+   */
+  WebkitBorderVerticalSpacing?: Globals | String | Number
+
+  /**
+   * Controls the display of text content for security purposes (e.g., password fields).
+   */
+  WebkitTextSecurity?: Globals | 'none' | 'circle' | 'disc' | 'square'
+
+  /**
+   * Specifies the shape of a box's corners within the area defined by the border-radius property.
+   * @experimental
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape
+   */
+  cornerShape?:
+    | Globals
+    | CornerShapeValue
+    | `${CornerShapeValue} ${CornerShapeValue}`
+    | `${CornerShapeValue} ${CornerShapeValue} ${CornerShapeValue}`
+    | `${CornerShapeValue} ${CornerShapeValue} ${CornerShapeValue} ${CornerShapeValue}`
+    | String
+}
+
 export type CssProperty = keyof PropertiesFallback
 
-export interface CssProperties extends PropertiesFallback<String | Number>, CssVarProperties {}
+export interface CssProperties extends PropertiesFallback<String | Number>, CssVarProperties, ModernCssProperties {}
 
 export interface CssKeyframes {
   [name: string]: {

@@ -1,4 +1,4 @@
-import React from 'react'
+import type React from 'react'
 import { createNavigation } from 'next-intl/navigation'
 import { defineRouting } from 'next-intl/routing'
 import { localePrefix, localesArray } from './config'

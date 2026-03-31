@@ -3,14 +3,14 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import Button from '@components/Button'
 import LinkButton from '@components/LinkButton'
-import { useNotifications } from '@shared/hooks/useNotifications'
-import { css } from '@styled-system/css'
-import { Box, Flex } from '@styled-system/jsx'
 import {
   faArrowCircleDown,
   faClipboard
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useNotifications } from '@shared/hooks/useNotifications'
+import { css } from '@styled-system/css'
+import { Box, Flex } from '@styled-system/jsx'
 import { useClipboard } from '@viclafouch/meme-studio-utilities/hooks'
 
 export type ExportModalProps = {
@@ -23,9 +23,16 @@ const ExportModal = ({ canvasBlob, height, width }: ExportModalProps) => {
   const t = useTranslations()
   const { notifySuccess, notifyError } = useNotifications()
 
+  // eslint-disable-next-line no-restricted-syntax -- URL.createObjectURL must not be called on every render to avoid blob URL memory leaks
   const imageSrc = React.useMemo(() => {
     return URL.createObjectURL(canvasBlob)
   }, [canvasBlob])
+
+  React.useEffect(() => {
+    return () => {
+      URL.revokeObjectURL(imageSrc)
+    }
+  }, [imageSrc])
 
   const { copy } = useClipboard()
 

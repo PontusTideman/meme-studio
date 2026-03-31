@@ -30,6 +30,7 @@ const Canvas = () => {
     containerRef
   })
 
+  // eslint-disable-next-line no-restricted-syntax -- Draggable is React.memo, callback must be stable to prevent re-renders
   const onDraggableClick = React.useCallback(
     (item: TextBox) => {
       setItemIdSelected(item.id, true)

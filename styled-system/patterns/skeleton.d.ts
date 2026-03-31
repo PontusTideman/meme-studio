@@ -9,7 +9,6 @@ export interface SkeletonProperties {
    
 }
 
-
 interface SkeletonStyles extends SkeletonProperties, DistributiveOmit<SystemStyleObject, keyof SkeletonProperties > {}
 
 interface SkeletonPatternFn {

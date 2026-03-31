@@ -23,7 +23,9 @@ type ExtractOptional<T> = Pick<T, Exclude<UndefinedKeys<T>, undefined>>
 
 type DefaultProps<T> = Required<ExtractOptional<T>>
 
-type NoNullFields<Ob> = { [K in keyof Ob]: NonNullable<Ob[K]> }
+type NoNullFields<TObject> = {
+  [TKey in keyof TObject]: NonNullable<TObject[TKey]>
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type UnknownAsyncCallback = (...params: any[]) => Promise<any>
@@ -34,4 +36,4 @@ type Await<T> = T extends {
   ? U
   : T
 
-type PartialWithRequired<T, K extends keyof T> = Pick<T, K> & Partial<T>
+type PartialWithRequired<T, TKey extends keyof T> = Pick<T, TKey> & Partial<T>

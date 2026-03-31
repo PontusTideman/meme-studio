@@ -9,7 +9,6 @@ export interface ParticulesBgProperties {
    
 }
 
-
 interface ParticulesBgStyles extends ParticulesBgProperties, DistributiveOmit<SystemStyleObject, keyof ParticulesBgProperties > {}
 
 interface ParticulesBgPatternFn {

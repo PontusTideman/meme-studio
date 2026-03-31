@@ -28,7 +28,7 @@ export const RotateBox = styled('div', {
     top: 'calc(100% + 1rem)',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    color: 'rgba(255, 255, 255, 0.6)',
+    color: 'white/60',
     padding: '0.3rem',
     borderRadius: '0.3rem',
     borderWidth: '0.0625rem',
@@ -40,8 +40,7 @@ export const RotateBox = styled('div', {
 export const ResizeBox = styled('div', {
   base: {
     position: 'absolute',
-    w: resizeSize,
-    h: resizeSize,
+    boxSize: resizeSize,
     borderRadius: '50%',
     zIndex: 2,
     transform: 'translate(-50%, -50%)',

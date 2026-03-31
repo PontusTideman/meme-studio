@@ -1,7 +1,7 @@
 import React from 'react'
-import { css } from '@styled-system/css'
 import { faRotateLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { css } from '@styled-system/css'
 import { useDraggable } from '@viclafouch/meme-studio-utilities/hooks'
 import type { TextBox } from '@viclafouch/meme-studio-utilities/schemas'
 import { DraggableBox, ResizeBox, RotateBox } from './Draggable.styles'
@@ -48,10 +48,9 @@ const Draggable = ({
           />
         )
       })}
-
       <RotateBox {...rotateProps}>
         <FontAwesomeIcon
-          className={css({ w: '11px', h: '11px' })}
+          className={css({ boxSize: '11px' })}
           icon={faRotateLeft}
         />
       </RotateBox>

@@ -47,6 +47,7 @@ const EmptyContainer = ({ memesPromise }: EmptyContainerProps) => {
           alt="Choose meme"
           width={360}
           height={308}
+          style={{ width: 'auto', height: 'auto' }}
           priority
           src="/images/choose-meme.svg"
         />
@@ -57,8 +58,7 @@ const EmptyContainer = ({ memesPromise }: EmptyContainerProps) => {
               type="file"
               onChange={handleChange}
               className={css({
-                w: 0,
-                h: 0,
+                boxSize: '0',
                 opacity: 0,
                 position: 'absolute',
                 visibility: 'hidden'

@@ -1,9 +1,28 @@
 {
-  "extends": "@viclafouch/eslint-config-viclafouch/tsconfig.json",
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noImplicitAny": true,
+    "libReplacement": false,
+    "jsx": "react-jsx",
+    "incremental": true,
     "baseUrl": "./src",
     "paths": {
-      // "@viclafouch/meme-studio-utilities/*": ["../../meme-studio-utilities/lib/*"],
       "@stores/*": ["stores/*"],
       "@shared/*": ["shared/*"],
       "@components/*": ["components/*"],
@@ -19,6 +38,12 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
   "exclude": ["node_modules", ".next"]
 }

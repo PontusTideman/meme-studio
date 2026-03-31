@@ -116,7 +116,7 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
       <React.Suspense fallback={null}>
         <Modal isOpen={isOpen} onClose={closeModal}>
           {Component && componentProps ? (
-            // @ts-expect-error
+            // @ts-expect-error -- dynamic component props cannot be statically verified
             <Component {...componentProps} />
           ) : (
             <div />

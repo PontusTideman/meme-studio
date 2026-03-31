@@ -29,6 +29,7 @@ const HomePage = async ({ locale }: PageProps) => {
           alt="Meme Studio logo"
           width={350}
           height={67}
+          style={{ width: 'auto', height: 'auto' }}
           priority
           src="/images/logo-meme-studio-dark.png"
         />

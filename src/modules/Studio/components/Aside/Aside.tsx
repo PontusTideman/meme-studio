@@ -3,17 +3,17 @@
 import React from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import { useTranslations } from 'next-intl'
-import { TabButton } from '@studio/components/Aside/Aside.styles'
-import EmptyCustom from '@studio/components/Aside/Tabs/Customisation/EmptyCustom'
-import { GallerySuspend } from '@studio/components/Aside/Tabs/Gallery'
-import { css } from '@styled-system/css'
-import { styled, VStack } from '@styled-system/jsx'
 import {
   faCircleExclamation,
   faHeading,
   faImage
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { TabButton } from '@studio/components/Aside/Aside.styles'
+import EmptyCustom from '@studio/components/Aside/Tabs/Customisation/EmptyCustom'
+import { GallerySuspend } from '@studio/components/Aside/Tabs/Gallery'
+import { css } from '@styled-system/css'
+import { styled, VStack } from '@styled-system/jsx'
 import { useMeme, useTab } from '@viclafouch/meme-studio-utilities/hooks'
 import type { Meme } from '@viclafouch/meme-studio-utilities/schemas'
 import type { Tab } from '@viclafouch/meme-studio-utilities/stores'

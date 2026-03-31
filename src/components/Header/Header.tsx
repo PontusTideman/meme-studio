@@ -43,6 +43,7 @@ const Header = ({ actions = null }: HeaderProps) => {
             alt="Meme Studio logo"
             width={250}
             height={48}
+            style={{ width: 'auto', height: 'auto', maxHeight: '100%' }}
             priority
             src="/images/logo-meme-studio-dark.png"
           />

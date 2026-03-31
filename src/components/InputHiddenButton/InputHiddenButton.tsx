@@ -1,4 +1,4 @@
-import React, { useId } from 'react'
+import React from 'react'
 import type { BaseButtonProps } from '@components/Button'
 import { css, cx } from '@styled-system/css'
 import * as styles from '../Button/Button.styles'
@@ -19,7 +19,7 @@ const InputHiddenButton = ({
   className,
   ...restInputProps
 }: InputHiddenButtonProps) => {
-  const id = useId()
+  const id = React.useId()
   const classes = styles.button({ rounded, fullWidth, color, size })
 
   return (
@@ -27,8 +27,7 @@ const InputHiddenButton = ({
       <input
         type="file"
         className={css({
-          w: 0,
-          h: 0,
+          boxSize: '0',
           opacity: 0,
           position: 'absolute',
           visibility: 'hidden'

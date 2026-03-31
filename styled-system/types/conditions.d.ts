@@ -10,7 +10,7 @@ export interface Conditions {
 	"_focusWithin": string
 	/** `&:is(:focus-visible, [data-focus-visible])` */
 	"_focusVisible": string
-	/** `&:is(:disabled, [disabled], [data-disabled])` */
+	/** `&:is(:disabled, [disabled], [data-disabled], [aria-disabled=true])` */
 	"_disabled": string
 	/** `&:is(:active, [data-active])` */
 	"_active": string
@@ -18,7 +18,7 @@ export interface Conditions {
 	"_visited": string
 	/** `&:target` */
 	"_target": string
-	/** `&:is(:read-only, [data-read-only])` */
+	/** `&:is(:read-only, [data-read-only], [aria-readonly=true])` */
 	"_readOnly": string
 	/** `&:read-write` */
 	"_readWrite": string
@@ -32,6 +32,12 @@ export interface Conditions {
 	"_expanded": string
 	/** `&[data-highlighted]` */
 	"_highlighted": string
+	/** `&[data-complete]` */
+	"_complete": string
+	/** `&[data-incomplete]` */
+	"_incomplete": string
+	/** `&[data-dragging]` */
+	"_dragging": string
 	/** `&::before` */
 	"_before": string
 	/** `&::after` */
@@ -40,7 +46,7 @@ export interface Conditions {
 	"_firstLetter": string
 	/** `&::first-line` */
 	"_firstLine": string
-	/** `&::marker` */
+	/** `&::marker, &::-webkit-details-marker` */
 	"_marker": string
 	/** `&::selection` */
 	"_selection": string
@@ -74,7 +80,7 @@ export interface Conditions {
 	"_peerFocusWithin": string
 	/** `.peer:is(:focus-visible, [data-focus-visible]) ~ &` */
 	"_peerFocusVisible": string
-	/** `.peer:is(:disabled, [disabled], [data-disabled]) ~ &` */
+	/** `.peer:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) ~ &` */
 	"_peerDisabled": string
 	/** `.peer:is(:checked, [data-checked], [aria-checked=true], [data-state="checked"]) ~ &` */
 	"_peerChecked": string
@@ -94,13 +100,13 @@ export interface Conditions {
 	"_groupFocusWithin": string
 	/** `.group:is(:focus-visible, [data-focus-visible]) &` */
 	"_groupFocusVisible": string
-	/** `.group:is(:disabled, [disabled], [data-disabled]) &` */
+	/** `.group:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) &` */
 	"_groupDisabled": string
 	/** `.group:is(:checked, [data-checked], [aria-checked=true], [data-state="checked"]) &` */
 	"_groupChecked": string
 	/** `.group:is([aria-expanded=true], [data-expanded], [data-state="expanded"]) &` */
 	"_groupExpanded": string
-	/** `.group:invalid &` */
+	/** `.group:is(:invalid, [data-invalid], [aria-invalid=true]) &` */
 	"_groupInvalid": string
 	/** `&:is(:indeterminate, [data-indeterminate], [aria-checked=mixed], [data-state="indeterminate"])` */
 	"_indeterminate": string
@@ -108,13 +114,13 @@ export interface Conditions {
 	"_required": string
 	/** `&:is(:valid, [data-valid])` */
 	"_valid": string
-	/** `&:is(:invalid, [data-invalid])` */
+	/** `&:is(:invalid, [data-invalid], [aria-invalid=true])` */
 	"_invalid": string
 	/** `&:autofill` */
 	"_autofill": string
-	/** `&:in-range` */
+	/** `&:is(:in-range, [data-in-range])` */
 	"_inRange": string
-	/** `&:out-of-range` */
+	/** `&:is(:out-of-range, [data-outside-range])` */
 	"_outOfRange": string
 	/** `&::placeholder, &[data-placeholder]` */
 	"_placeholder": string
@@ -124,22 +130,46 @@ export interface Conditions {
 	"_pressed": string
 	/** `&:is([aria-selected=true], [data-selected])` */
 	"_selected": string
+	/** `&:is([aria-grabbed=true], [data-grabbed])` */
+	"_grabbed": string
+	/** `&[data-state=under-value]` */
+	"_underValue": string
+	/** `&[data-state=over-value]` */
+	"_overValue": string
+	/** `&[data-state=at-value]` */
+	"_atValue": string
 	/** `&:default` */
 	"_default": string
 	/** `&:optional` */
 	"_optional": string
-	/** `&:is([open], [data-open], [data-state="open"])` */
+	/** `&:is([open], [data-open], [data-state="open"], :popover-open)` */
 	"_open": string
 	/** `&:is([closed], [data-closed], [data-state="closed"])` */
 	"_closed": string
-	/** `&:fullscreen` */
+	/** `&:is(:fullscreen, [data-fullscreen])` */
 	"_fullscreen": string
 	/** `&:is([data-loading], [aria-busy=true])` */
 	"_loading": string
+	/** `&:is([hidden], [data-hidden])` */
+	"_hidden": string
+	/** `&:is([aria-current=true], [data-current])` */
+	"_current": string
 	/** `&[aria-current=page]` */
 	"_currentPage": string
 	/** `&[aria-current=step]` */
 	"_currentStep": string
+	/** `&[data-today]` */
+	"_today": string
+	/** `&[data-unavailable]` */
+	"_unavailable": string
+	/** `&[data-range-start]` */
+	"_rangeStart": string
+	/** `&[data-range-end]` */
+	"_rangeEnd": string
+	/** `&[data-now]` */
+	"_now": string
+	/** `&[data-topmost]` */
+	"_topmost": string
 	/** `@media (prefers-reduced-motion: reduce)` */
 	"_motionReduce": string
 	/** `@media (prefers-reduced-motion: no-preference)` */
@@ -164,9 +194,9 @@ export interface Conditions {
 	"_lessContrast": string
 	/** `@media (prefers-contrast: more)` */
 	"_moreContrast": string
-	/** `[dir=ltr] &` */
+	/** `:where([dir=ltr], :dir(ltr)) &` */
 	"_ltr": string
-	/** `[dir=rtl] &` */
+	/** `:where([dir=rtl], :dir(rtl)) &` */
 	"_rtl": string
 	/** `&::-webkit-scrollbar` */
 	"_scrollbar": string
@@ -178,8 +208,14 @@ export interface Conditions {
 	"_horizontal": string
 	/** `&[data-orientation=vertical]` */
 	"_vertical": string
+	/** `& :where(svg)` */
+	"_icon": string
 	/** `@starting-style` */
 	"_starting": string
+	/** `@media (scripting: none)` */
+	"_noscript": string
+	/** `@media (inverted-colors: inverted)` */
+	"_invertedColors": string
 	/** `@media screen and (min-width: 40rem)` */
 	"sm": string
 	/** `@media screen and (min-width: 40rem) and (max-width: 47.9975rem)` */

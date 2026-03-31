@@ -17,8 +17,7 @@ export const MemeTitle = styled('h3', {
 export const MemeLink = styled(Link, {
   base: {
     display: 'block',
-    h: 'full',
-    w: 'full',
+    boxSize: 'full',
     pos: 'relative'
   },
   variants: {
@@ -30,12 +29,11 @@ export const MemeLink = styled(Link, {
           },
           _before: {
             content: "''",
-            w: 'full',
+            boxSize: 'full',
             zIndex: 2,
-            h: 'full',
             position: 'absolute',
             inset: 0,
-            bg: 'rgba(255, 255, 255, 0.65)'
+            bg: 'white/65'
           }
         }
       }

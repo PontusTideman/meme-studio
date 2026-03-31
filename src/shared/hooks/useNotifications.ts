@@ -1,4 +1,3 @@
-import React from 'react'
 import { toast, type ToastOptions } from 'react-toastify'
 import { useTranslations } from 'next-intl'
 
@@ -7,29 +6,23 @@ export const useNotifications = () => {
 
   type TextKey = Parameters<typeof t>[0]
 
-  const notifyError = React.useCallback(
-    (text?: Parameters<typeof t>[0]) => {
-      toast(text || t('common.errors.unknown'), {
-        type: 'error'
-      })
-    },
-    [t]
-  )
+  const notifyError = (text?: TextKey) => {
+    toast(text || t('common.errors.unknown'), {
+      type: 'error'
+    })
+  }
 
-  const notifySuccess = React.useCallback(
-    (text: TextKey) => {
-      toast(t(text), {
-        type: 'success'
-      })
-    },
-    [t]
-  )
+  const notifySuccess = (text: TextKey) => {
+    toast(t(text), {
+      type: 'success'
+    })
+  }
 
   return {
     notifyError,
     notifySuccess,
-    notify: React.useCallback((text: TextKey, options: ToastOptions) => {
+    notify: (text: TextKey, options: ToastOptions) => {
       return toast(text, options)
-    }, [])
+    }
   }
 }

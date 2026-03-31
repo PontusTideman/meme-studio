@@ -19,7 +19,7 @@ export const ModalOverlay = styled('div', {
     position: 'fixed',
     inset: 0,
     zIndex: -1,
-    bg: 'rgba(0, 0, 0, 0.5)'
+    bg: 'black/50'
   }
 })
 
