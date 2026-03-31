@@ -47,7 +47,6 @@ const EmptyContainer = ({ memesPromise }: EmptyContainerProps) => {
           alt="Choose meme"
           width={360}
           height={308}
-          style={{ width: 'auto', height: 'auto' }}
           priority
           src="/images/choose-meme.svg"
         />

@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import QueryProvider from 'queries/QueryProvider'
 import ToastContainer from '@components/NotificationProvider'
+import PromoBanner from '@components/PromoBanner'
 import { type PagePropsWithLocaleParams } from '@i18n/config'
 import { routing } from '@i18n/navigation'
 import { GoogleAnalytics } from '@next/third-parties/google'
@@ -68,6 +69,7 @@ const RootLayout = async ({
               draggable={false}
               theme="dark"
             />
+            <PromoBanner />
             <ModalProvider>{children}</ModalProvider>
           </NextIntlClientProvider>
         </QueryProvider>

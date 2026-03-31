@@ -1,4 +1,5 @@
 import about from './about'
+import banner from './banner'
 import common from './common'
 import create from './create'
 import createSlug from './create-[slug]'
@@ -10,6 +11,7 @@ import tools from './tools'
 
 export default {
   common,
+  banner,
   footer,
   tools,
   gallery,
